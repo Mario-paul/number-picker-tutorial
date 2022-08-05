@@ -13,7 +13,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.numberPicker.maxValue = 10
+        binding.numberPicker.minValue = 0
+        binding.numberPicker.value = 5
 
+        binding.numberPicker.setOnValueChangedListener { picker, oldValue, newValue ->
+            binding.textViewNumberPicker.text = "Selected: " + newValue
+        }
 
     }
 }
